@@ -1,4 +1,5 @@
 #include<string>
+#include<fstream>
 class BeaconSender{
     public:
        BeaconSender();
@@ -6,7 +7,9 @@ class BeaconSender{
        bool StartBeacon();
        bool StopBeacon();
 
-
+    private:
+      std::ifstream frombeacon;
+      std::ofstream tobeacon;
 
 };
 

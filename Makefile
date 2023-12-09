@@ -24,4 +24,4 @@ $(OBJFILE)BeaconSender.obj: $(SRC_DIR)BeaconSender.cpp
 clean:
 	-rm $(OBJFILE)BeaconSender.obj
 	-rm $(OBJFILE)BeaconSenderDriver.obj
-	-rm
+	-rm $(OUTPUT_DIR)BeaconSender.a

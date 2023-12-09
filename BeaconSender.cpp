@@ -7,8 +7,11 @@
 #include <iostream>
 
 BeaconSender::BeaconSender()
+
 {
     // Initialise serialport
+    frombeacon.open("myfile.txt");
+
 }
 
 BeaconSender::BeaconSender(std::string comport)
@@ -18,6 +21,9 @@ BeaconSender::BeaconSender(std::string comport)
 
 bool BeaconSender::StartBeacon(){
     std::cout<<"starting Beacon!";
+    std::string received;
+    frombeacon>>received;
+    std::cout<<received;
 return true;
 }
 
