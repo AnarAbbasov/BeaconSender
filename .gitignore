@@ -1,3 +1,4 @@
-**/objs
+**/objs/**
 **/static_lib
 BeaconSenderDriver.exe
+myfile.txt
