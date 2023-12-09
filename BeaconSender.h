@@ -1,5 +1,6 @@
 #include<string>
 #include<fstream>
+#include "serialib.h"
 class BeaconSender{
     public:
        BeaconSender();
