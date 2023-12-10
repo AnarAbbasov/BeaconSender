@@ -16,8 +16,8 @@ BeaconSender::BeaconSender()//:
 
 }
 
-BeaconSender::BeaconSender(std::string comport):
-frombeacon(comport)
+BeaconSender::BeaconSender(std::string comport)
+
 {
     //Initialise serialPort with option
     //frombeacon.open(comport);
@@ -25,23 +25,31 @@ frombeacon(comport)
 
 bool BeaconSender::StartBeacon(){
     std::cout<<"starting Beacon!";
-    frombeacon.open("myfile.txt");
-    serialib sp=serialib();
+     
+
     
-    std::string received;
-    frombeacon>>received;
-    std::cout<<received;
-    frombeacon>>received;
-    frombeacon.close();
-    std::cout<<received;
+    char errorOpening = serial.openDevice("/dev/ttyUSB0", 9600);
+     if (errorOpening!=1) return errorOpening;
+    printf ("Successful connection to %s\n","/dev/ttyUSB0");
+
+
+     // Create the string
+    char buffer[15] = "hello\n";
+    char rbuffer[205];
+
+    // Write the string on the serial device
+    this->serial.writeString(buffer);
+    printf ("String sent: %s", buffer);
+
+    // Read the string
+    this->serial.readString(rbuffer, '\n', 204, 2000);
+    printf("String read: %s\n", rbuffer);
+
 return true;
 }
 
 bool BeaconSender::StopBeacon(){
-     std::cout<<"stopping Beacon!";
-     tobeacon.open("myfile.txt", std::ifstream::out);
-     tobeacon<<"gnoynik";
-     tobeacon.close();
+     
      return true;
 
      

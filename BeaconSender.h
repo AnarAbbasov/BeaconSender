@@ -9,8 +9,8 @@ class BeaconSender{
        bool StopBeacon();
 
     private:
-      std::ifstream frombeacon;
-      std::ofstream tobeacon;
+      serialib serial=serialib();
+     
 
 };
 
