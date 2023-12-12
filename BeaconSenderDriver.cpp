@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include "BeaconSender.h"
 
@@ -8,10 +6,12 @@
 int main()
 {
 
-    BeaconSender *bs=new BeaconSender();
-    bs->StartBeacon();
-    //bs->StopBeacon();
-    //BeaconSender bs1=BeaconSender();
-   // BeaconSender bt("tty");
-    //bs1.StartBeacon();
+BeaconSender *bs=new BeaconSender();
+if (bs->StartBeacon()==false)
+    {
+       std::cout<<"error opening COM port";
+       return 1;
+    }
+
+return 0;
 }
